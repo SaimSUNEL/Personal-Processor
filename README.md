@@ -7,3 +7,10 @@ An ANTLR-based assembler has been implemented in order to program processor.
 Assemler yields a myprocprogram.output. This file needs to be load into ROM memory of processor.
 Processor and Assembler documentation will be prepared later. LedBlink example turns on and off a led connected to port A of processor.  
 
+Tools:
+  - Eclipse Luna Service Release 2 (4.4.2)
+  - Antlr 4.5.3
+  - JavaSE 1.8
+  
+  Brief Project demonstration: https://youtu.be/Qz6nqFM-49U
+
