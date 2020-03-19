@@ -269,8 +269,35 @@ public class TreeGezici  extends HelloBaseVisitor<Object>{
 		
 		
 		
+		
+		KOMUT = "00011" ; //addi $8 , -1
+		KOMUT += beþ_bit_int_to_binary(8) + yirmiiki_bit_int_to_binary( -1 );
+		
+		hexe_dönüþtür( KOMUT );
+		
+		
+		
+		  KOMUT = "11000" ;  //mov $sp , $result
+			
+			KOMUT+= beþ_bit_int_to_binary(8 ) + beþ_bit_int_to_binary( 9 ) +"00000000000000000" ;
+			
+			hexe_dönüþtür( KOMUT );
+			
+		
+		
+		
+		 KOMUT = "01000" ;
+			
+		 KOMUT+= beþ_bit_int_to_binary(9) + beþ_bit_int_to_binary( (int)  8  ) +"00000000000000000" ;
+			
+		 hexe_dönüþtür( KOMUT );
+		
+		
+		
+		
+		
 		KOMUT = "00100" ;
-		KOMUT += beþ_bit_int_to_binary( 7 ) + "0000000000000000000000"    ;
+		KOMUT += beþ_bit_int_to_binary( 9 ) + "0000000000000000000000"    ;
 			hexe_dönüþtür( KOMUT );
 		
 		
@@ -666,19 +693,45 @@ public class TreeGezici  extends HelloBaseVisitor<Object>{
 	
 	 public Object visitLabelli_call(HelloParser.Labelli_callContext ctx) { 
 		
-		 KOMUT = "01001" ;
-			KOMUT += beþ_bit_int_to_binary( 0 ) + yirmiiki_bit_int_to_binary( 2 );
+		 KOMUT = "01001" ; //it was 2
+			KOMUT += beþ_bit_int_to_binary( 0 ) + yirmiiki_bit_int_to_binary( 4 );
 			
 			hexe_dönüþtür( KOMUT );
-			//PC+8 resultta
+			//PC+2 resultta
 			
 			//mov $reg , $9
-			 KOMUT = "11000" ;
+			 //KOMUT = "11000" ;
 				
-				KOMUT+= beþ_bit_int_to_binary( 7 ) + beþ_bit_int_to_binary( 9 ) +"00000000000000000" ;
+				///KOMUT+= beþ_bit_int_to_binary( 7 ) + beþ_bit_int_to_binary( 9 ) +"00000000000000000" ;
+				
+				//hexe_dönüþtür( KOMUT );
+			 //Geri dönüþ adresi $7 de
+				
+				
+				//push command  store $result to $sp
+				KOMUT = "10000" ; //sw $result , $sp komutu
+				
+				KOMUT+= beþ_bit_int_to_binary(9) + beþ_bit_int_to_binary( 8 ) +"00000000000000000" ;
 				
 				hexe_dönüþtür( KOMUT );
-			 //Geri dönüþ adresi $7 de
+				
+				
+				KOMUT = "00011" ; //addi $8 , 1
+				KOMUT += beþ_bit_int_to_binary(8) + yirmiiki_bit_int_to_binary( 1 );
+				
+				hexe_dönüþtür( KOMUT );
+				
+				
+				
+				  KOMUT = "11000" ;  //mov $sp , $result
+					
+					KOMUT+= beþ_bit_int_to_binary(8 ) + beþ_bit_int_to_binary( 9 ) +"00000000000000000" ;
+					
+					hexe_dönüþtür( KOMUT );
+					
+
+				
+				
 			
 			
 			
