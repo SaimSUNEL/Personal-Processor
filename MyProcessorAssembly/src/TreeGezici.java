@@ -1237,9 +1237,9 @@ KOMUT = "10000" ;
 		{
 			int reg_num =( int ) visit( ctx.reg_or_immediate() ) ;
 		
-KOMUT = "10000" ;
+KOMUT = "01000" ;
 			
-//sw $result , $reg_num
+//lw $result , $reg_num
 
 			KOMUT+= beþ_bit_int_to_binary( 9 ) + beþ_bit_int_to_binary( reg_num ) +"00000000000000000" ;
 			
@@ -1253,7 +1253,9 @@ KOMUT = "10000" ;
 			//lwi $9 , imm
 			
 			KOMUT = "00010" ;
-			KOMUT += beþ_bit_int_to_binary( 9 )  + yirmiiki_bit_int_to_binary( (int)visit( ctx.reg_or_immediate()));
+			
+			
+			KOMUT += beþ_bit_int_to_binary( 9 )  + yirmiiki_bit_int_to_binary( Integer.parseInt( ctx.reg_or_immediate().getText() ));
 			
 			hexe_dönüþtür( KOMUT );
 		
