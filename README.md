@@ -315,25 +315,28 @@ movi $1, 20
 save_pc $2
 ```
 
-- //Call and return needs to be improved, benefit from stack commands...
-- call label, call immediate : function call,  save PC to $7 and jump to label or immediate address
+- call label, call immediate : function call,  save PC(the address of first command after call) to RAM[$sp], increase $sp and jump to label or immediate address
 ```
-movi $sp, 100
-movi $1, 10
+mov $sp, 100
+
 loop:
-call function
+call deneme
+addi $2, 1
+mov_fast $2, $result
+
 jmp loop
 
+deneme:
+call denemelik
+return
 
-function:
-
+denemelik:
 addi $1, 1
 mov_fast $1, $result
-
 return
 ```
 
-- return : return from function, loads $7 content to PC , PC = $7
+- return : return from function, decrease $sp by one, load $result with content in RAM[$sp], and set PC = $result
 ```
 movi $sp, 100
 movi $1, 10
